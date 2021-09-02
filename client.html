@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Task_07</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	</head>
+	<body>
+		<script>
+		function lw() {
+		var i = document.getElementById("in1").value
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "http://192.168.56.101/cgi-bin/car.py?x=" + i, true);
+
+		xhr.send();
+
+		xhr.onload = function() {
+			var output = xhr.responseText;
+			document.getElementById("d1").innerHTML = output;
+		}
+		}
+		</script>
+		<style>
+		body {
+			background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoJkktSZvY1LzLNqTE2fnRyDxambrgH_tbzQ&usqp=CAU");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			height: 100%;
+		}
+		#d1 {
+			font-size: 20px;
+			color: blue;
+		}
+		.firstDiv {
+			text-align: center;
+			padding-top: 80px;
+			color: #04009A;
+		}
+		</style>
+		<div class="firstDiv">
+			<h1>
+			 Enter your command: <input id="in1" />
+			</h1>
+			<pre>
+			<div id="d1">Output to be shown here.....</div>
+			</pre>
+			<button class="btn btn-dark btn-lg" onclick="lw();">Click to Run Command</button>
+		</div>
+	</body>
+</html>
